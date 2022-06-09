@@ -11,7 +11,7 @@
     color: gray;
 
     .title {
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 500;
     }
   }
@@ -55,7 +55,7 @@
         text-align: center;
 
         .itemTitle {
-          font-size: 14px;
+          font-size: 1rem;
           color: gray;
         }
 
@@ -63,7 +63,7 @@
           display: flex;
           align-items: center;
           margin-top: 10px;
-          font-size: 14px;
+          font-size: 1rem;
 
           &.positive {
             color: green;

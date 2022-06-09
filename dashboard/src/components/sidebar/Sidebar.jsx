@@ -11,6 +11,10 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import HomeIcon from "@mui/icons-material/Home";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -28,32 +32,51 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
-          <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <HomeIcon className="icon" />
+
+              <span>Dashboard</span>
+            </li>
+          </Link>
+          <Link to="/appointments" style={{ textDecoration: "none" }}>
+            <li>
+              <FormatListBulletedIcon className="icon" />
+              <span>Appointments</span>
+            </li>
+          </Link>
+          <Link to="/earnings" style={{ textDecoration: "none" }}>
+            <li>
+              <CreditCardIcon className="icon" />
+
+              <span>Earnings</span>
+            </li>
+          </Link>
+          <Link to="/analytics" style={{ textDecoration: "none" }}>
+            <li>
+              <BarChartIcon className="icon" />
+
+              <span>Analytics</span>
+            </li>
+          </Link>
+          <p className="title">USERS</p>
+          <Link to="/clients" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <span>Clients</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link to="/service-providers" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
+              <PersonOutlineIcon className="icon" />
+              <span>Service Providers</span>
             </li>
           </Link>
           <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
+            <ReportProblemIcon className="icon" />
+            <span>Inquiries</span>
           </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">USEFUL</p>
+          {/* <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
             <span>Stats</span>
@@ -74,8 +97,8 @@ const Sidebar = () => {
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
-          </li>
-          <p className="title">USER</p>
+          </li> */}
+          <p className="title">ACCOUNT</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>

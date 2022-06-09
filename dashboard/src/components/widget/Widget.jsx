@@ -15,9 +15,9 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       data = {
-        title: "USERS",
+        title: "CLIENTS",
         isMoney: false,
-        link: "See all users",
+        link: "See all clients",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -29,11 +29,12 @@ const Widget = ({ type }) => {
         ),
       };
       break;
+
     case "order":
       data = {
-        title: "ORDERS",
+        title: "APPPOINTMENTS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all appointments",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
