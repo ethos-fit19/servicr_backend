@@ -19,17 +19,21 @@ require("./models/user");
 require("./models/serviceCategory");
 require("./models/service");
 require("./models/appointment");
+require("./models/earnings");
+require("./models/serviceProvider");
 
 // routes
 const authRoutes = require("./routes/auth");
 const serviceCategories = require("./routes/serviceCategories");
 const serviceRoutes = require("./routes/service");
 const appointmentRoutes = require("./routes/appointment");
+const earningsRoutes = require("./routes/earnings");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", serviceCategories);
 app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
+app.use("/api/earnings", earningsRoutes);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
