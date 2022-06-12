@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-const { ObjectId } = require("mongoose");
 
 const serviceSchema = new mongoose.Schema({
   title: {
@@ -11,12 +10,12 @@ const serviceSchema = new mongoose.Schema({
     maxlength: 255,
   },
   serviceProvider: {
-    type: ObjectId,
-    ref: "User",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ServiceProvider",
   },
   serviceCategory: {
-    type: ObjectId,
-    ref: "Category",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ServiceCategory",
   },
   fee: {
     type: Number,

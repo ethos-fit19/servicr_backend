@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const serviceProviderSchema = new mongoose.Schema({
-    spID:{
+    serviceProviderID:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
     },
@@ -12,7 +12,7 @@ const serviceProviderSchema = new mongoose.Schema({
     certificates:[{
         certificates:{type:String,}   
      }],
-     serviceApprovedStatus:{
+     isApprovedStatus:{
       type:Boolean,
       default:false
      }
