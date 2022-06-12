@@ -10,7 +10,4 @@ const serviceCategorySchema = new mongoose.Schema({
   },
 });
 
-const ServiceCategory = mongoose.model(
-  "ServiceCategory",
-  serviceCategorySchema
-);
+mongoose.model("ServiceCategory",serviceCategorySchema);
