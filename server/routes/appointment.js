@@ -1,11 +1,11 @@
 
 const express = require("express");
 const router = express.Router();
-
+const mongoose = require("mongoose");
 
 
 //Imports
-const appointment  = require('../models/appointment');//appointment 
+const appointment  = mongoose.model("Appointment");//appointment 
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
@@ -18,14 +18,13 @@ router.post("/", async (req, res) => {
 //get all
 router.get('/', (req, res) => {
     appointment .find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('addedBy', 'firstName lastName')
 });
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
     
     appointment .findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
