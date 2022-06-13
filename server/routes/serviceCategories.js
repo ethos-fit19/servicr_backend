@@ -1,75 +1,47 @@
-const {ServiceCategory, validate} = require('../models/serviceCategory');
-const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
-  try {
-    const serviceCategories = await ServiceCategory.find().sort('name');
-    res.send(serviceCategories);
-  }
-  catch (ex) {
-    next(ex);
-  }
-});
+//Imports
+const serviceCategories = require('../models/serviceCategory');//serviceCategories
+const ResponseService = require('../utils/ResponsesService'); // Response service
 
-router.post('/', async (req, res, next) => {
-  try {
-    const { error } = validate(req.body); 
-    if (error) return res.status(400).send(error.details[0].message);
-
-    let serviceCategory = new ServiceCategory({ name: req.body.name });
-    serviceCategory = await serviceCategory.save();
-    
-    res.send(serviceCategory);
-  }
-  catch (ex) {
-    next(ex);
-  }
-});
-
-router.put('/:id', async (req, res, next) => {
-  try {
-    const { error } = validate(req.body); 
-    if (error) return res.status(400).send(error.details[0].message);
-
-    const serviceCategory = await ServiceCategory.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
-      new: true
+// Create
+router.post("/", async (req, res) => {
+    new serviceCategories(req.body).save((err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
     });
+});
 
-    if (!serviceCategory) return res.status(404).send('The category with the given ID was not found.');
+//get all
+router.get('/', (req, res) => {
+    serviceCategories.find((err, doc) => {
+        ResponseService.generalPayloadResponse(err, newPayload, res);
+    })
+        .sort({ addedOn: -1 })
+});
+
+// Update
+router.put("/:id", async (req, res) => {
     
-    res.send(serviceCategory);
-  }
-  catch (ex) {
-    next(ex);
-  }
+    serviceCategories.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res, "Updated");
+    });
 });
 
-router.delete('/:id', async (req, res, next) => {
-  try {
-    const serviceCategory = await ServiceCategory.findByIdAndRemove(req.params.id);
-
-    if (!serviceCategory) return res.status(404).send('The category with the given ID was not found.');
-
-    res.send(serviceCategory);
-  }
-  catch (ex) {
-    next(ex);
-  }
+// Get by id
+router.get('/:id', (req, res) => {
+    serviceCategories.findById(req.params.id, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    });
 });
 
-router.get('/:id', async (req, res, next) => {
-  try {
-    const serviceCategory = await ServiceCategory.findById(req.params.id);
-
-    if (!serviceCategory) return res.status(404).send('The category with the given ID was not found.');
-
-    res.send(serviceCategory);
-  }
-  catch (ex) {
-    next(ex);
-  }
+// Delete
+router.delete('/:id', (req, res) => {
+    serviceCategories.findByIdAndRemove(req.body.id, (err, doc) => {
+        ResponseService.generalResponse(err, res, "task removed successfully");
+    });
 });
 
-module.exports = router;
+
+
+module.exports=router;
