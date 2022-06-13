@@ -29,7 +29,21 @@ const appointmentSchema = new mongoose.Schema({
     // min: 0,
     // max: 1000,
   },
-  status: { type: Boolean , default:false},
+  serviceAcceptedStatus: { 
+    type: Boolean , 
+    default:false
+  },
+
+  clientAcceptedStatus:{
+    type: Boolean , 
+    default:false,
+
+  },
+  paymentStatus:{
+    type: Boolean , 
+    default:false,
+    
+  }
 });
 
 mongoose.model("Appointment", appointmentSchema);
