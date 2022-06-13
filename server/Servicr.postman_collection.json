@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "bf8fb761-8037-4768-8c9d-375eb728ff54",
+		"_postman_id": "9e2271e2-be06-4e91-afdf-ff767cfb297e",
 		"name": "Servicr",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19501531"
+		"_exporter_id": "21427058"
 	},
 	"item": [
 		{
@@ -164,6 +164,14 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Service delete",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -201,7 +209,7 @@
 					"response": []
 				},
 				{
-					"name": "Appointments",
+					"name": "Get all Appointments",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -229,6 +237,248 @@
 								"appointments"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment by ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete appointment",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"\",\r\n    \"review\": \"issa modaya\",\r\n    \"servicer\":\"\",\r\n    \"starRating\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/reviews/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  all reviews",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update reviews",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete reviews",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get reviews by Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews Copy",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"\",\r\n    \"review\": \"issa modaya\",\r\n    \"servicer\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  all reviews",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update reviews",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete reviews",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get reviews by Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Earnings",
+			"item": [
+				{
+					"name": "Create Earnings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Earnings",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Earnings by Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get profit",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServiceProvider",
+			"item": [
+				{
+					"name": "Create serviceProvider",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get all serviceProviders",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get serviceProviders by Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update serviceProviders",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete serviceProviders",
+					"request": {
+						"method": "DELETE",
+						"header": []
 					},
 					"response": []
 				}
