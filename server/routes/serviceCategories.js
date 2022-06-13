@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require("mongoose");
 
 //Imports
-const serviceCategories = require('../models/serviceCategory');//serviceCategories
+const serviceCategories =  mongoose.model("ServiceCategory");
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
@@ -13,15 +14,14 @@ router.post("/", async (req, res) => {
 });
 
 //get all
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     serviceCategories.find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
-        .sort({ addedOn: -1 })
 });
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
     
     serviceCategories.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
@@ -30,14 +30,14 @@ router.put("/:id", async (req, res) => {
 
 // Get by id
 router.get('/:id', (req, res) => {
-    serviceCategories.findById(req.params.id, (err, doc) => {
+    serviceCategories.findById(req.body.id, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     });
 });
 
 // Delete
 router.delete('/:id', (req, res) => {
-    serviceCategories.findByIdAndRemove(req.body.id, (err, doc) => {
+    serviceCategories.findByIdAndRemove(req.params.id, (err, doc) => {
         ResponseService.generalResponse(err, res, "task removed successfully");
     });
 });
