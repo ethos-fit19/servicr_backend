@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require("mongoose");
+
+
 
 // //Imports
-const Rewiews = require('../models/reviews');//Folder Model
+const reviews=  mongoose.model("Reviews");
+
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
-router.post("/", async (req, res) => {
+router.post("/create", async (req, res) => {
     new reviews(req.body).save((err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     });
@@ -15,14 +19,13 @@ router.post("/", async (req, res) => {
 //get all
 router.get('/', (req, res) => {
     reviews.find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('addedBy', 'firstName lastName')
 });
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
     
     reviews.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
@@ -38,10 +41,10 @@ router.get('/:id', (req, res) => {
 
 // Delete
 router.delete('/:id', (req, res) => {
-    reviews.findByIdAndRemove(req.body.id, (err, doc) => {
+    reviews.findByIdAndRemove(req.params.id, (err, doc) => {
         ResponseService.generalResponse(err, res, "task removed successfully");
     });
-    //admin reply
+   
 
 });
 

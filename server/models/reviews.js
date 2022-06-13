@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
 
+
 const reviewsSchema = new mongoose.Schema({
     starRating: {
         type: String,
+        required:true,
+        minlength :1,
+        maxlength :5,
     },
     review: {
         type: String,
