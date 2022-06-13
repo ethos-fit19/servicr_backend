@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require("mongoose");
 
 //Imports
-const serviceProvider = require('../models/serviceProvider');//Folder Model
+const serviceProvider =mongoose.model("ServiceProvider");
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
@@ -15,14 +16,13 @@ router.post("/", async (req, res) => {
 //get all
 router.get('/', (req, res) => {
     serviceProvider.find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('addedBy', 'firstName lastName')
 });
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
     
     serviceProvider.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 
 // Delete
 router.delete('/:id', (req, res) => {
-    serviceProvider.findByIdAndRemove(req.body.id, (err, doc) => {
+    serviceProvider.findByIdAndRemove(req.params.id, (err, doc) => {
         ResponseService.generalResponse(err, res, "task removed successfully");
     });
 });

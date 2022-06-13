@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require("mongoose");
 
 //Imports
-const Earnings = require('../models/earnings');//Folder Model
+const Earnings = mongoose.model("Earnings");//Folder Model
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
@@ -12,22 +13,15 @@ router.post("/", async (req, res) => {
     });
 });
 
-//get all
-router.get('/', (req, res) => {
-    Earnings.find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+//get by servicer
+router.get('/servicer/:id', (req, res) => {
+    Earnings.find({serviceProviderId : req.params.id},(err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('addedBy', 'firstName lastName')
 });
 
-// // Update
-// router.put("/:id", async (req, res) => {
-    
-//     Earnings.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-//         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
-//     });
-// });
+
 
 // // Get by id
 // router.get('/:id', (req, res) => {
@@ -36,12 +30,6 @@ router.get('/', (req, res) => {
 //     });
 // });
 
-// // Delete
-// router.delete('/:id', (req, res) => {
-//     Earnings.findByIdAndRemove(req.body.id, (err, doc) => {
-//         ResponseService.generalResponse(err, res, "task removed successfully");
-//     });
-// });
 
 
 
