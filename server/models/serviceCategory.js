@@ -8,6 +8,9 @@ const serviceCategorySchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 50,
   },
+  Image:{
+    type:String,
+  }
 });
 
 mongoose.model("ServiceCategory",serviceCategorySchema);
