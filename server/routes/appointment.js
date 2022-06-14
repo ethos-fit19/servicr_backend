@@ -1,11 +1,10 @@
-
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 
 
-
 //Imports
-const appointment  = require('../models/appointment');//appointment 
+const appointment  = mongoose.model("Appointment");//appointment 
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
@@ -18,14 +17,19 @@ router.post("/", async (req, res) => {
 //get all
 router.get('/', (req, res) => {
     appointment .find((err, doc) => {
-        ResponseService.generalPayloadResponse(err, newPayload, res);
+        ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('addedBy', 'firstName lastName')
+        .populate(service,'title')
+        .populate(client, 'name email nic mobileNo')
+        .populate(serviceProvider,'serviceProviderID')
+        .populate(serviceCategory.serviceProviderID,  'name email nic mobileNo')
+        .populate(serviceCategory,'name')
+
 });
 
 // Update
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
     
     appointment .findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
@@ -41,7 +45,7 @@ router.get('/:id', (req, res) => {
 
 // Delete
 router.delete('/:id', (req, res) => {
-    appointment .findByIdAndRemove(req.body.id, (err, doc) => {
+    appointment .findByIdAndRemove(req.params.id, (err, doc) => {
         ResponseService.generalResponse(err, res, "task removed successfully");
     });
 });
