@@ -23,6 +23,11 @@ const appointmentSchema = new mongoose.Schema({
   date: {
     type: Date,
   },
+
+  time:{
+    type:Date,
+
+  },
   price: {
     type: Number,
     required: true,
