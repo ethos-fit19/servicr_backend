@@ -1,39 +1,28 @@
 const mongoose = require("mongoose");
 
-const reviewsSchema = new mongoose.Schema({
-    customerId: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    serviceProviderId: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "ServiceProvider",
-      },
-    serviceCtegory:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"ServiceCategory"
-    },
-    reviewId:{
-        type:String,
-        req:true
-    },
-    starRating:{
-        type:String,
-    },
-comments:{
-    type:String,
- },
- from : {
-    type : mongoose.Schema.Types.ObjectId,
-    ref : 'User',
-},
-to : {  // recieved review from another people
-    type : mongoose.Schema.Types.ObjectId,
-    ref : 'User',
-}
 
-},{
-timestamps : true,
+const reviewsSchema = new mongoose.Schema({
+    starRating: {
+        type: String,
+        required:true,
+        minlength :1,
+        maxlength :5,
+    },
+    review: {
+        type: String,
+    },
+    AddedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    Servicer: {  // recieved review from another people
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'serviceProvider',
+    },
+    addedOn:{
+        type: Date,
+    },
+
 });
 
 mongoose.model("Reviews", reviewsSchema);

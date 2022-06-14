@@ -30,6 +30,8 @@ const serviceRoutes = require("./routes/service");
 const appointmentRoutes = require("./routes/appointment");
 const earningsRoutes = require("./routes/earnings");
 const reviewsRoutes = require("./routes/reviews");
+const serviceProviderRoutes = require("./routes/serviceProvider");
+
 
 
 app.use("/api/auth", authRoutes);
@@ -38,6 +40,7 @@ app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/earnings", earningsRoutes);
 app.use("/api/reviews", reviewsRoutes);
+app.use("/api/serviceProvider", serviceProviderRoutes);
 
 
 const port = process.env.PORT || 4000;
