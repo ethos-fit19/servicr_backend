@@ -10,7 +10,7 @@ const reviews=  mongoose.model("Reviews");
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
-router.post("/create", async (req, res) => {
+router.post("/", async (req, res) => {
     new reviews(req.body).save((err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     });
@@ -22,8 +22,7 @@ router.get('/', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        // .populate('AddedBy', 'name email')
-        // .populate('Servicer', 'serviceProviderID categoryID')
+        .populate('addedBy' ,'name')
 });
 
 // Update

@@ -1,7 +1,6 @@
-
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
 
 //Imports
@@ -21,6 +20,14 @@ router.get('/', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
+
+        .populate('service','title')
+        .populate('client', 'name email nic mobileNo')
+        .populate('serviceProvider','serviceProviderID categoryID')
+        .populate(serviceCategory.serviceProviderID,  'name email nic mobileNo')
+        .populate('serviceCategory','name')
+
+
 });
 
 // Update
@@ -40,7 +47,7 @@ router.get('/:id', (req, res) => {
 
 // Delete
 router.delete('/:id', (req, res) => {
-    appointment .findByIdAndRemove(req.body.id, (err, doc) => {
+    appointment .findByIdAndRemove(req.params.id, (err, doc) => {
         ResponseService.generalResponse(err, res, "task removed successfully");
     });
 });
