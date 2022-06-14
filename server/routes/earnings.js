@@ -19,6 +19,8 @@ router.get('/servicer/:id', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
+        .populate('customerId', 'name')
+        .populate('amount', 'price serviceAcceptedStatus clientAcceptedStatus')
 });
 
 
