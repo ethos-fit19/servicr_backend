@@ -52,6 +52,14 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+//get by servicer
+router.get('/servicer/:id', (req, res) => {
+    appointment.find({serviceProvider : req.params.id},(err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    })
+        .sort({ addedOn: -1 })
+});
+
 
 
 module.exports=router;
