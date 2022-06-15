@@ -24,6 +24,7 @@ require("./models/reviews");
 
 // routes
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 const serviceCategories = require("./routes/serviceCategories");
 const serviceRoutes = require("./routes/service");
 const appointmentRoutes = require("./routes/appointment");
