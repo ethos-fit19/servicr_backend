@@ -138,11 +138,11 @@
 				{
 					"name": "Service Create",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Garden cleaning\",\r\n    \"serviceProvider\": \"62a36e91128a4940c81ec45d\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"fee\":\"550\"\r\n}",
+							"raw": "{\r\n    \"_id\":\"62a385a90c4e9e467c5fc726\",\r\n    \"title\": \"beauty\",\r\n    \"serviceProvider\": \"62a36e91128a4940c81ec45d\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"fee\":\"550\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -150,7 +150,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/services/create",
+							"raw": "http://localhost:4000/api/services",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -158,8 +158,7 @@
 							"port": "4000",
 							"path": [
 								"api",
-								"services",
-								"create"
+								"services"
 							]
 						}
 					},
@@ -188,7 +187,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceProvider\":\"62a7a6161f89510c1c55d355\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-03-14T23:00:00.000Z\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
+							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceCategory\": \"62a308c578a1dc49d4963ad1\",\r\n     \"date\": \"2022-03-14T23:00:00.000Z\",\r\n    \"price\": 1000,\r\n    \"address\":\"350\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -196,7 +195,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/appointments/create",
+							"raw": "http://localhost:4000/api/appointments",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -204,8 +203,7 @@
 							"port": "4000",
 							"path": [
 								"api",
-								"appointments",
-								"create"
+								"appointments"
 							]
 						}
 					},
@@ -221,7 +219,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceProvider\": \"62a36e91128a4940c81ec45d\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"550\",\r\n    \"price\":\"550\",\r\n    \"status\":\"active\"\r\n\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -249,7 +247,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/appointments/62a6ef763145e716908c563b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"appointments",
+								"62a6ef763145e716908c563b"
+							]
 						}
 					},
 					"response": []
@@ -260,7 +268,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/appointments/62a395a7aff0d1460819cfe0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"appointments",
+								"62a395a7aff0d1460819cfe0"
+							]
 						}
 					},
 					"response": []
@@ -270,8 +288,21 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceCategory\": \"62a308c578a1dc49d4963ad1\",\r\n    \"date\": \"2022-03-14T23:00:00.000Z\",\r\n    \"price\": 1200,\r\n    \"address\":\"350\"\r\n}"
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"appointments"
+							]
 						}
 					},
 					"response": []
@@ -284,11 +315,11 @@
 				{
 					"name": "Create Review",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"\",\r\n    \"review\": \"issa modaya\",\r\n    \"servicer\":\"\",\r\n    \"starRating\":\"5\"\r\n}",
+							"raw": "{\r\n    \"id\":\"62a8261538c4b045dcf920ce\",\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"62a36ea0128a4940c81ec45e\",\r\n    \"review\": \"bbbbbbbbbb\",\r\n    \"servicer\":\"62a8674db7d20b2aa40499b0\",\r\n    \"starRating\":\"3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -296,7 +327,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/reviews/create",
+							"raw": "http://localhost:4000/api/reviews",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -304,8 +335,7 @@
 							"port": "4000",
 							"path": [
 								"api",
-								"reviews",
-								"create"
+								"reviews"
 							]
 						}
 					},
@@ -317,7 +347,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews"
+							]
 						}
 					},
 					"response": []
@@ -327,6 +366,10 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": ""
 						}
@@ -339,7 +382,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/reviews/62a8261538c4b045dcf920ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews",
+								"62a8261538c4b045dcf920ce"
+							]
 						}
 					},
 					"response": []
@@ -350,56 +403,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Earnings",
-			"item": [
-				{
-					"name": "Create Earnings",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all Earnings",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Earnings by Id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get profit",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/reviews/62a871a9b7d20b2aa40499b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reviews",
+								"62a871a9b7d20b2aa40499b6"
+							]
 						}
 					},
 					"response": []
@@ -412,10 +426,28 @@
 				{
 					"name": "Create serviceProvider",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"_id\":\"62a86968b7d20b2aa40499b1\",\r\n\"serviceProviderID\":\"62a8674db7d20b2aa40499b0\",\r\n\"categoryID\": \"62a75c827da8430bd820204f\",\r\n\"isApprovedStatus\":\"true\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/serviceProvider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"serviceProvider"
+							]
 						}
 					},
 					"response": []
@@ -426,7 +458,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/serviceProvider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"serviceProvider"
+							]
 						}
 					},
 					"response": []
@@ -437,7 +478,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/serviceProvider/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"serviceProvider",
+								""
+							]
 						}
 					},
 					"response": []
@@ -448,7 +499,16 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:4000/api/serviceProvider",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"serviceProvider"
+							]
 						}
 					},
 					"response": []
@@ -461,6 +521,43 @@
 						"url": {
 							"raw": ""
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get usersby id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update users",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete users",
+					"request": {
+						"method": "DELETE",
+						"header": []
 					},
 					"response": []
 				}
