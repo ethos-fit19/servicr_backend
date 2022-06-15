@@ -30,15 +30,13 @@ const appointmentRoutes = require("./routes/appointment");
 const reviewsRoutes = require("./routes/reviews");
 const serviceProviderRoutes = require("./routes/serviceProvider");
 
-
-
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/categories", serviceCategories);
 app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/serviceProvider", serviceProviderRoutes);
-
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
