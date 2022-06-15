@@ -1,41 +1,52 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 
-const Service = mongoose.model("Service");
 
-router.get("/", async (req, res, next) => {
-  try {
-    const services = await Service.find().sort("name");
-    res.send(services);
-  } catch (ex) {
-    next(ex);
-  }
-});
+//Imports
+const service  = mongoose.model("Service");//service 
+const ResponseService = require('../utils/ResponsesService'); // Response service
 
-router.post("/", async (req, res, next) => {
-  const { title, serviceProvider, serviceCategory, fee } = req.body;
-
-  if (!title || !serviceProvider || !serviceCategory || !fee) {
-    return res.status(422).json({ error: "Add all the fields" });
-  }
-  const service = new Service({
-    title,
-    serviceProvider,
-    serviceCategory,
-    fee,
-  });
-
-  service
-    .save()
-    .then((result) => {
-      res.json({ service: result });
-    })
-    .catch((err) => {
-      console.log(err);
+// Create
+router.post("/", async (req, res) => {
+    new service(req.body).save((err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
     });
 });
 
+//get all
+router.get('/', (req, res) => {
+    service.find((err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    })
+        .sort({ addedOn: -1 })
+        .populate('serviceProvider','serviceProviderID categoryID')
+        .populate('serviceCategory', 'name')
+
+});
+
+// Update
+router.put("/", async (req, res) => {
+    service .findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res, "Updated");
+    });
+});
+
+// Get by id
+router.get('/:id', (req, res) => {
+    service .findById(req.params.id, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    });
+});
+
+// Delete
+router.delete('/:id', (req, res) => {
+    service .findByIdAndRemove(req.params.id, (err, doc) => {
+        ResponseService.generalResponse(err, res, "task removed successfully");
+    });
+});
+
+module.exports = router;
 // router.post("/create", async (req, res, next) => {
 // try {
 //   const { error } = req.body;
@@ -135,4 +146,3 @@ router.post("/", async (req, res, next) => {
 //   }
 // });
 
-module.exports = router;
