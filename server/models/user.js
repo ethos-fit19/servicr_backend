@@ -17,30 +17,31 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  nic:{
-    type:String
+  bio: {
+    type: String,
   },
-  image:{
-    type:String
+  nic: {
+    type: String,
   },
-  dob:{
-    type:Date
+  image: {
+    type: String,
   },
-  gender:{
-    type:Boolean, 
-    default:false
+  dob: {
+    type: Date,
   },
-  mobileNo:{
-    type:String
+  gender: {
+    type: Boolean,
+    default: false,
   },
-  province:{
-    type:String
+  mobileNo: {
+    type: String,
   },
-  city:{
-    type:String,
-  }
-
-
+  province: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
 });
 
 mongoose.model("User", userSchema);
