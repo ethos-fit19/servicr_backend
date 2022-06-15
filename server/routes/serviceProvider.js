@@ -19,12 +19,12 @@ router.get('/', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
-        .populate('User','')
+        .populate('serviceProviderID','name userType email nic dob gender mobileNo province city ')
 });
 
 // Update
 router.put("/", async (req, res) => {
-    
+
     serviceProvider.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
     });
