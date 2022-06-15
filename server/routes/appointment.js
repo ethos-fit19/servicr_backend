@@ -1,52 +1,240 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 
-const Appointment = mongoose.model("Appointment");
 
-router.get("/", async (req, res, next) => {
-  try {
-    const appointments = await Appointment.find().sort("_id");
-    res.send(appointments);
-  } catch (ex) {
-    next(ex);
-  }
-});
+//Imports
+const appointment  = mongoose.model("Appointment");//appointment 
+const ResponseService = require('../utils/ResponsesService'); // Response service
 
-router.post("/create", async (req, res, next) => {
-  const {
-    service,
-    client,
-    // serviceProvider,
-    serviceCategory,
-    address,
-    date,
-    price,
-    status,
-  } = req.body;
-
-  //   if (!title || !serviceProvider || !serviceCategory || !fee) {
-  //     return res.status(422).json({ error: "Add all the fields" });
-  //   }
-  const appointment = new Appointment({
-    service,
-    client,
-    // serviceProvider,
-    serviceCategory,
-    address,
-    date,
-    price,
-    status,
-  });
-  console.log(appointment);
-  appointment
-    .save()
-    .then((result) => {
-      res.json({ appointment: result });
-    })
-    .catch((err) => {
-      console.log(err);
+// Create
+router.post("/", async (req, res) => {
+    new appointment (req.body).save((err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
     });
 });
 
-module.exports = router;
+//get all
+router.get('/', (req, res) => {
+    appointment .find((err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    })
+        .sort({ addedOn: -1 })
+
+        .populate('service','title')
+        .populate('client', 'name email nic mobileNo')
+        .populate('serviceProvider','serviceProviderID')
+        .populate('serviceCategory.serviceProviderID',  'name email nic mobileNo')
+        .populate('serviceCategory','name')
+
+
+});
+
+// Update
+router.put("/", async (req, res) => {
+    
+    appointment .findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res, "Updated");
+    });
+});
+
+// Get by id
+router.get('/:id', (req, res) => {
+    appointment .findById(req.params.id, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    });
+});
+
+// Delete
+router.delete('/:id', (req, res) => {
+    appointment .findByIdAndRemove(req.params.id, (err, doc) => {
+        ResponseService.generalResponse(err, res, "task removed successfully");
+    });
+});
+
+//get by servicer
+router.get('/servicer/:id', (req, res) => {
+    appointment.find({serviceProvider : req.params.id},(err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    })
+        .sort({ addedOn: -1 })
+});
+
+
+
+module.exports=router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,23 +1,21 @@
 const mongoose = require("mongoose");
 
-const { ObjectId } = require("mongoose");
-
 const appointmentSchema = new mongoose.Schema({
   service: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Service",
   },
   client: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   serviceProvider: {
-    type: ObjectId,
-    ref: "User",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ServiceProvider",
   },
   serviceCategory: {
-    type: ObjectId,
-    ref: "Category",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ServiceCategory",
   },
   address: {
     type: String,
@@ -25,13 +23,32 @@ const appointmentSchema = new mongoose.Schema({
   date: {
     type: Date,
   },
+
+  time:{
+    type:Date,
+
+  },
   price: {
     type: Number,
     required: true,
-    min: 0,
-    max: 1000,
+    // min: 0,
+    // max: 1000,
   },
-  status: { type: Boolean },
+  serviceAcceptedStatus: { 
+    type: Boolean , 
+    default:false
+  },
+
+  clientAcceptedStatus:{
+    type: Boolean , 
+    default:false,
+
+  },
+  paymentStatus:{
+    type: Boolean , 
+    default:false,
+    
+  }
 });
 
 mongoose.model("Appointment", appointmentSchema);
