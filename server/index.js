@@ -19,7 +19,6 @@ require("./models/user");
 require("./models/serviceCategory");
 require("./models/service");
 require("./models/appointment");
-require("./models/earnings");
 require("./models/serviceProvider");
 require("./models/reviews");
 
@@ -28,7 +27,6 @@ const authRoutes = require("./routes/auth");
 const serviceCategories = require("./routes/serviceCategories");
 const serviceRoutes = require("./routes/service");
 const appointmentRoutes = require("./routes/appointment");
-const earningsRoutes = require("./routes/earnings");
 const reviewsRoutes = require("./routes/reviews");
 const serviceProviderRoutes = require("./routes/serviceProvider");
 

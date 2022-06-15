@@ -11,11 +11,11 @@ const reviewsSchema = new mongoose.Schema({
     review: {
         type: String,
     },
-    AddedBy: {
+    addedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-    Servicer: {  // recieved review from another people
+    servicer: {  // recieved review from another people
         type: mongoose.Schema.Types.ObjectId,
         ref: 'serviceProvider',
     },

@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
+        .populate('addedBy' ,'name')
 });
 
 // Update
