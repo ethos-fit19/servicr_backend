@@ -38,7 +38,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/categories", serviceCategories);
 app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
-app.use("/api/earnings", earningsRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/serviceProvider", serviceProviderRoutes);
 

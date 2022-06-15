@@ -10,7 +10,7 @@ const reviews=  mongoose.model("Reviews");
 const ResponseService = require('../utils/ResponsesService'); // Response service
 
 // Create
-router.post("/create", async (req, res) => {
+router.post("/", async (req, res) => {
     new reviews(req.body).save((err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     });
