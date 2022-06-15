@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/create", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const { title, serviceProvider, serviceCategory, fee } = req.body;
 
   if (!title || !serviceProvider || !serviceCategory || !fee) {
