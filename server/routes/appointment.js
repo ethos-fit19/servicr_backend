@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 
         .populate('service','title')
         .populate('client', 'name email nic mobileNo')
-        .populate('serviceProvider','serviceProviderID categoryID')
-        .populate(serviceCategory.serviceProviderID,  'name email nic mobileNo')
+        .populate('serviceProvider','serviceProviderID')
+        .populate('serviceCategory.serviceProviderID',  'name email nic mobileNo')
         .populate('serviceCategory','name')
 
 
