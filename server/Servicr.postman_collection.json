@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "9e2271e2-be06-4e91-afdf-ff767cfb297e",
+		"_postman_id": "a57fa7f7-cb0f-4895-aa5c-f84c3c805a32",
 		"name": "Servicr",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21427058"
+		"_exporter_id": "21427799"
 	},
 	"item": [
 		{
@@ -169,7 +169,10 @@
 					"name": "Service delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -185,7 +188,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-03-14T23:00:00.000Z\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
+							"raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceProvider\":\"62a7a6161f89510c1c55d355\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-03-14T23:00:00.000Z\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -244,7 +247,10 @@
 					"name": "Get appointment by ID",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -252,7 +258,10 @@
 					"name": "Delete appointment",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -260,7 +269,10 @@
 					"name": "Update Appointment",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -303,81 +315,21 @@
 					"name": "Get  all reviews",
 					"request": {
 						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Update reviews",
-					"request": {
-						"method": "PUT",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Delete reviews",
-					"request": {
-						"method": "DELETE",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Get reviews by Id",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Reviews Copy",
-			"item": [
-				{
-					"name": "Create Review",
-					"request": {
-						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"\",\r\n    \"review\": \"issa modaya\",\r\n    \"servicer\":\"\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:4000/api/reviews",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"api",
-								"reviews"
-							]
+							"raw": ""
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get  all reviews",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
 					"name": "Update reviews",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -385,7 +337,10 @@
 					"name": "Delete reviews",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -393,7 +348,10 @@
 					"name": "Get reviews by Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -417,7 +375,10 @@
 					"name": "Get all Earnings",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -425,7 +386,10 @@
 					"name": "Get Earnings by Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -433,7 +397,10 @@
 					"name": "Get profit",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -446,7 +413,10 @@
 					"name": "Create serviceProvider",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -454,7 +424,10 @@
 					"name": "Get all serviceProviders",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -462,7 +435,10 @@
 					"name": "Get serviceProviders by Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -470,7 +446,10 @@
 					"name": "Update serviceProviders",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -478,7 +457,10 @@
 					"name": "Delete serviceProviders",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
