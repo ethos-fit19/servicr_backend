@@ -23,6 +23,10 @@ require("./models/serviceProvider");
 require("./models/reviews");
 
 // routes
+app.get("/", (req, res) => {
+  res.send("Servicr backend online...");
+});
+
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const serviceCategories = require("./routes/serviceCategories");
