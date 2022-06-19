@@ -24,8 +24,8 @@ router.get("/", (req, res) => {
 
 // Update
 router.put("/:id", async (req, res) => {
-  user.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res, "Updated");
+  user.findOneAndUpdate(req.body.id, req.body, (err, doc) => {
+    ResponseService.generalPayloadResponse(err, doc, res, "User updated");
   });
 });
 
@@ -39,7 +39,7 @@ router.get("/:id", (req, res) => {
 // Delete
 router.delete("/:id", (req, res) => {
   user.findByIdAndRemove(req.body.id, (err, doc) => {
-    ResponseService.generalResponse(err, res, "task removed successfully");
+    ResponseService.generalResponse(err, res, "User removed");
   });
 });
 
