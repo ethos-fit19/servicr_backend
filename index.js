@@ -34,7 +34,6 @@ const serviceRoutes = require("./routes/service");
 const appointmentRoutes = require("./routes/appointment");
 const reviewsRoutes = require("./routes/reviews");
 const serviceProviderRoutes = require("./routes/serviceProvider");
-const usersRoutes = require("./routes/users");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -43,7 +42,6 @@ app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/serviceProvider", serviceProviderRoutes);
-app.use("/api/users", usersRoutes);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
