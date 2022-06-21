@@ -32,7 +32,6 @@ router.get('/', (req, res) => {
 
 // Update
 router.put("/", async (req, res) => {
-    
     appointment .findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
         ResponseService.generalPayloadResponse(err, doc, res, "Updated");
     });
@@ -58,6 +57,12 @@ router.get('/servicer/:id', (req, res) => {
         ResponseService.generalPayloadResponse(err, doc, res);
     })
         .sort({ addedOn: -1 })
+});
+//get notification
+router.get('/notification/:id', (req, res) => {
+    appointment .find({serviceProvider:req.params.id , serviceisAcceptedStatus:"false"}, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res);
+    });
 });
 
 
