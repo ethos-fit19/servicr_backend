@@ -24,6 +24,10 @@ router.post("/register", (req, res) => {
     return res.status(422).json({ error: "Invalid email format!" });
   }
 
+  
+
+
+
   //Checking password mismatch
   // if (password != conPassword) {
   //   return res.status(422).json({ error: "Passwords mismatch!" });
