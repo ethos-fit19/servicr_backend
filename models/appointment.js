@@ -37,6 +37,11 @@ const appointmentSchema = new mongoose.Schema({
   serviceAcceptedStatus: { 
     type: Boolean , 
     default:false
+
+  },
+    serviceisAcceptedStatus: { 
+      type: Boolean , 
+      default:false
   },
 
   clientAcceptedStatus:{
