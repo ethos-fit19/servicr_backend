@@ -11,7 +11,7 @@ const User = mongoose.model("User");
 router.post("/register", (req, res) => {
   const { name, userType, email, password, confirmPassword } = req.body;
   //Checking empty fields
-  if (!name || !userType || !email || !password || !confirmPassword) {
+  if (!name || !userType || !email || !password) {
     res.status(422).json({ error: "Please fill all the fields" });
   }
 
@@ -29,9 +29,10 @@ router.post("/register", (req, res) => {
 
 
   //Checking password mismatch
-  if (password != conPassword) {
-    return res.status(422).json({ error: "Passwords mismatch!" });
-  }
+  // if (password != conPassword) {
+  //   return res.status(422).json({ error: "Passwords mismatch!" });
+  // }
+
   //Checking user
   User.findOne({ email: email })
     .then((savedUser) => {
@@ -98,7 +99,7 @@ router.post("/login", (req, res) => {
           const { _id, name } = savedUser;
           res.json({
             token,
-            // user: { _id, name },
+            user: { _id, name },
           });
         } else {
           return res.status(422).json({ error: "Invalid Email or password" });
