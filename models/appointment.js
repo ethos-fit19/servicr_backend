@@ -34,11 +34,12 @@ const appointmentSchema = new mongoose.Schema({
     // min: 0,
     // max: 1000,
   },
+  // accept or decline
   serviceAcceptedStatus: { 
     type: Boolean , 
     default:false
-
   },
+  // notification
     serviceisAcceptedStatus: { 
       type: Boolean , 
       default:false

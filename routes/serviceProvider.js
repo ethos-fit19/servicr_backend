@@ -1,50 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
 
 //Imports
-const serviceProvider = mongoose.model("ServiceProvider"); //Import models
-const ResponseService = require("../utils/ResponsesService"); //import  Response service
+ServiceProviderController = require('../controllers/serviceProviderController');
 
 // Create
-router.post("/", async (req, res) => {
-  new serviceProvider(req.body).save((err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.post("/", async (req, res) => ServiceProviderController.create(req,res));
 
 //get all
-router.get("/", (req, res) => {
-  serviceProvider
-    .find((err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    })
-    .sort({ addedOn: -1 })
-    .populate("serviceProviderID",  "name userType email nic dob gender province city " );
-});
+router.get("/", (req, res) => ServiceProviderController.getAll(req,res));
 
 // Update
-router.put("/", async (req, res) => {
-  serviceProvider.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res, "Updated");
-  });
-});
+router.put("/", async (req, res) => ServiceProviderController.update(req,res));
 
 // Get by id
-router.get("/:id", (req, res) => {
-  serviceProvider.findById(req.params.id, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.get("/:id", (req, res) =>ServiceProviderController.getById(req,res));
 
 // Delete
-router.delete("/:id", (req, res) => {
-  serviceProvider.findByIdAndRemove(req.params.id, (err, doc) => {
-    ResponseService.generalResponse(err, res,
-      "Service provider removed successfully"
-    );
-  });
-});
+router.delete("/:id", (req, res) => ServiceProviderController.delete(req,res));
 
 module.exports = router;
