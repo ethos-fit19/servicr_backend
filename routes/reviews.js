@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 
 // //Imports
 const reviews = mongoose.model("Reviews");
-
-const ResponseService = require("../utils/ResponsesService"); // Response service
+// Response service
+const ResponseService = require("../utils/ResponsesService"); 
 
 // Create
 router.post("/", async (req, res) => {
