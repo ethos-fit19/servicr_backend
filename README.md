@@ -1,1 +1,1 @@
-# Servicr Backend (Admin Panel + Backend Server)
+# Servicr - Backend Server
