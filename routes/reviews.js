@@ -1,48 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
-// //Imports
-const reviews = mongoose.model("Reviews");
-// Response service
-const ResponseService = require("../utils/ResponsesService"); 
+//Imports
+ReviewController = require('../controllers/reviewsController');
 
 // Create
-router.post("/", async (req, res) => {
-  new reviews(req.body).save((err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.post("/", async (req, res) => ReviewController.create(req,res));
 
 //get all
-router.get("/", (req, res) => {
-  reviews
-    .find((err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    })
-    .sort({ addedOn: -1 })
-    .populate("addedBy", "name");
-});
+router.get("/", (req, res) => ReviewController.getAll(req,res));
 
 // Update
-router.put("/", async (req, res) => {
-  reviews.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res, "Updated");
-  });
-});
+router.put("/", async (req, res) => ReviewController.update(req,res));
 
 // Get by id
-router.get("/:id", (req, res) => {
-  reviews.findById(req.params.id, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.get("/:id", (req, res) => ReviewController.getById(req,res));
 
 // Delete
-router.delete("/:id", (req, res) => {
-  reviews.findByIdAndRemove(req.params.id, (err, doc) => {
-    ResponseService.generalResponse(err, res, "Review removed successfully");
-  });
-});
+router.delete("/:id", (req, res) => ReviewController.delete(req,res));
 
 module.exports = router;

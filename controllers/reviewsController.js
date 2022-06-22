@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
-
-//Imports model
 const reviews = mongoose.model("Reviews");
-// Response service
 const ResponseService = require("../utils/ResponsesService"); 
 
 // Create
@@ -14,8 +11,7 @@ exports.create=(async (req, res) => {
 
 //get all
 exports.getAll=(async(req, res) => {
-  reviews
-    .find((err, doc) => {
+  reviews.find((err, doc) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 })
@@ -43,4 +39,3 @@ exports.delete=(async(req, res) => {
   });
 });
 
-module.exports = router;
