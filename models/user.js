@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  bio: {
+  nic: {
     type: String,
   },
-  nic: {
+  bio: {
     type: String,
   },
   image: {
@@ -31,9 +31,6 @@ const userSchema = new mongoose.Schema({
   },
   gender: {
     type: Boolean,
-  },
-  mobileNo: {
-    type: String,
   },
   province: {
     type: String,

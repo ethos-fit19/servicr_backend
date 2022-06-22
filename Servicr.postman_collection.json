@@ -24,10 +24,9 @@
               }
             },
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/auth/login",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "auth", "login"]
+              "raw": "{{apiBaseUrl}}/auth/login",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["auth", "login"]
             }
           },
           "response": []
@@ -42,7 +41,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"SP\",\r\n    \"userType\": \"sp\",\r\n    \"email\": \"sp@example.com\",\r\n    \"password\": \"password\"\r\n}",
+              "raw": "{\r\n    \"name\": \"SP\",\r\n    \"userType\": \"sp\",\r\n    \"email\": \"sp@2example.com\",\r\n    \"password\": \"password\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -50,10 +49,8 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/auth/register",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
+              "raw": "{{apiBaseUrl}}/api/auth/register",
+              "host": ["{{apiBaseUrl}}"],
               "path": ["api", "auth", "register"]
             }
           },
@@ -70,11 +67,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:4000/api/users",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "users"]
+              "raw": "{{apiBaseUrl}}/users",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users"]
             }
           },
           "response": []
@@ -85,10 +80,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/users/62a81c19a574bf1d70caa77e",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "users", "62a81c19a574bf1d70caa77e"]
+              "raw": "{{apiBaseUrl}}/users/62a81c19a574bf1d70caa77e",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a81c19a574bf1d70caa77e"]
             }
           },
           "response": []
@@ -108,11 +102,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/users/62a36e91128a4940c81ec45d",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "users", "62a36e91128a4940c81ec45d"]
+              "raw": "{{apiBaseUrl}}/users/62a36e91128a4940c81ec45d",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a36e91128a4940c81ec45d"]
             }
           },
           "response": []
@@ -132,11 +124,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/users/62a36e91128a4940c81ec45d",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "users", "62a36e91128a4940c81ec45d"]
+              "raw": "{{apiBaseUrl}}/users/62a36e91128a4940c81ec45d",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a36e91128a4940c81ec45d"]
             }
           },
           "response": []
@@ -161,11 +151,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/categories",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "categories"]
+              "raw": "{{apiBaseUrl}}/categories",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["categories"]
             }
           },
           "response": []
@@ -188,11 +176,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/categories",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "categories"]
+              "raw": "{{apiBaseUrl}}/categories",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["categories"]
             }
           },
           "response": []
@@ -212,11 +198,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/services/create",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "services", "create"]
+              "raw": "{{apiBaseUrl}}/services/create",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["services", "create"]
             }
           },
           "response": []
@@ -227,7 +211,9 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -244,7 +230,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceProvider\":\"62a7a6161f89510c1c55d355\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-03-14T23:00:00.000Z\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
+              "raw": "{\r\n    \"client\": \"62af11fa3352b446882ff455\",\r\n    \"serviceProvider\":\"62a86adcb7d20b2aa40499b2\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-06-21 12:26:03.374561\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -252,10 +238,9 @@
               }
             },
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/appointments",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "appointments"]
+              "raw": "{{apiBaseUrl}}/appointments",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["appointments"]
             }
           },
           "response": []
@@ -278,10 +263,9 @@
               }
             },
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/appointments",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "appointments"]
+              "raw": "{{apiBaseUrl}}/appointments",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["appointments"]
             }
           },
           "response": []
@@ -292,7 +276,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -303,7 +289,9 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -314,7 +302,9 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -339,11 +329,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:4000/api/reviews/create",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "4000",
-              "path": ["api", "reviews", "create"]
+              "raw": "{{apiBaseUrl}}/reviews/create",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["reviews", "create"]
             }
           },
           "response": []
@@ -354,7 +342,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -365,7 +355,9 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -376,7 +368,9 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -387,7 +381,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -403,7 +399,9 @@
             "method": "POST",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -414,7 +412,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -425,7 +425,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -436,7 +438,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -461,10 +465,9 @@
               }
             },
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/serviceProvider",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "serviceProvider"]
+              "raw": "{{apiBaseUrl}}/serviceProvider",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider"]
             }
           },
           "response": []
@@ -475,10 +478,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/serviceProvider",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "serviceProvider"]
+              "raw": "{{apiBaseUrl}}/serviceProvider",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider"]
             }
           },
           "response": []
@@ -489,10 +491,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://servicr.herokuapp.com/api/serviceProvider/62b056424ad0f2b5c3254faa",
-              "protocol": "https",
-              "host": ["servicr", "herokuapp", "com"],
-              "path": ["api", "serviceProvider", "62b056424ad0f2b5c3254faa"]
+              "raw": "{{apiBaseUrl}}/serviceProvider/62b056424ad0f2b5c3254faa",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider", "62b056424ad0f2b5c3254faa"]
             }
           },
           "response": []
@@ -503,7 +504,9 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
@@ -514,12 +517,37 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
             }
           },
           "response": []
         }
       ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "apiBaseUrl",
+      "value": "https://servicr.herokuapp.com/api",
+      "type": "string"
     }
   ]
 }
