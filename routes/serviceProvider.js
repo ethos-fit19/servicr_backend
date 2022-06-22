@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+
 //Imports
-const serviceProvider = mongoose.model("ServiceProvider");
-const ResponseService = require("../utils/ResponsesService"); // Response service
+const serviceProvider = mongoose.model("ServiceProvider"); //Import models
+const ResponseService = require("../utils/ResponsesService"); //import  Response service
 
 // Create
 router.post("/", async (req, res) => {
@@ -20,10 +21,7 @@ router.get("/", (req, res) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 })
-    .populate(
-      "serviceProviderID",
-      "name userType email nic dob gender province city "
-    );
+    .populate("serviceProviderID",  "name userType email nic dob gender province city " );
 });
 
 // Update
@@ -43,9 +41,7 @@ router.get("/:id", (req, res) => {
 // Delete
 router.delete("/:id", (req, res) => {
   serviceProvider.findByIdAndRemove(req.params.id, (err, doc) => {
-    ResponseService.generalResponse(
-      err,
-      res,
+    ResponseService.generalResponse(err, res,
       "Service provider removed successfully"
     );
   });
