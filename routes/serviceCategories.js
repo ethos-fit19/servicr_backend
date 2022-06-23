@@ -1,44 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 
-//Imports
-const serviceCategories = mongoose.model("ServiceCategory");
-const ResponseService = require("../utils/ResponsesService"); // Response service
+//imports
+ ServiceCategoryController = require("../controllers/serviceCategoriesController")
 
 // Create
-router.post("/", async (req, res) => {
-  new serviceCategories(req.body).save((err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.post("/", async (req, res) => ServiceCategoryController.create(req,res));
 
 //get all
-router.get("/", (req, res) => {
-  serviceCategories.find((err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.get("/", (req, res) => ServiceCategoryController.getAll(req,res));
 
 // Update
-router.put("/", async (req, res) => {
-  serviceCategories.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res, "Updated");
-  });
-});
+router.put("/", async (req, res) => ServiceCategoryController.update(req,res));
 
 // Get by id
-router.get("/:id", (req, res) => {
-  serviceCategories.findById(req.body.id, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.get("/:id", (req, res) => ServiceCategoryController.getById(req,res));
 
 // Delete
-router.delete("/:id", (req, res) => {
-  serviceCategories.findByIdAndRemove(req.params.id, (err, doc) => {
-    ResponseService.generalResponse(err, res, "Category removed successfully");
-  });
-});
+router.delete("/:id", (req, res) => ServiceCategoryController.delete(req,res));
 
 module.exports = router;
