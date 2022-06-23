@@ -20,8 +20,9 @@ SERVICER_BACKEND
 ├── models                // Add all the mongoose models here
 ├── routes                // Add all the routes and sub routes he
 ├── middleware            // Add middlewares here for tasks
+├── utils                 // Add all the services here
 ├── index.js              // Entry file
-├── nodemon.json          // Update parellel with ecosystem.config.js but only the dev variables goes here
+├── nodemon.json          
 ├── package.json          // node module dependencies
 └── readme.md             // README file
 ```
