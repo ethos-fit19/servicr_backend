@@ -1,70 +1,28 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 
 //Imports
-const appointment = mongoose.model("Appointment"); //appointment
-const ResponseService = require("../utils/ResponsesService"); // Response service
+appointmentController = require('../controllers/appointmentController');
 
 // Create
-router.post("/", async (req, res) => {
-  new appointment(req.body).save((err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.post("/", async (req, res) =>  appointmentController.create(req,res));
 
 //get all
-router.get("/", (req, res) => {
-  appointment
-    .find((err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    })
-    .sort({ addedOn: -1 })
-
-    .populate("service", "title")
-    .populate("client", "name email nic mobileNo")
-    .populate("serviceProvider", "serviceProviderID")
-    .populate("serviceCategory.serviceProviderID", "name email nic mobileNo")
-    .populate("serviceCategory", "name");
-});
+router.get("/", (req, res) => appointmentController.getAll(req,res));
 
 // Update
-router.put("/", async (req, res) => {
-  appointment.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res, "Updated");
-  });
-});
+router.put("/", async (req, res) => appointmentController.update(req,res));
 
 // Get by id
-router.get("/:id", (req, res) => {
-  appointment.findById(req.params.id, (err, doc) => {
-    ResponseService.generalPayloadResponse(err, doc, res);
-  });
-});
+router.get("/:id", (req, res) => appointmentController.getById(req,res));
 
 // Delete
-router.delete("/:id", (req, res) => {
-  appointment.findByIdAndRemove(req.params.id, (err, doc) => {
-    ResponseService.generalResponse(err, res, "task removed successfully");
-  });
-});
+router.delete("/:id", (req, res) => appointmentController.delete(req,res));
 
 //get by servicer
-router.get("/servicer/:id", (req, res) => {
-  appointment
-    .find({ serviceProvider: req.params.id }, (err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    })
-    .sort({ addedOn: -1 });
-});
+router.get("/servicer/:id", (req, res) => appointmentController.getByServicer(req,res));
+
 //get notification
-router.get("/notification/:id", (req, res) => {
-  appointment.find(
-    { serviceProvider: req.params.id, serviceisAcceptedStatus: "false" },
-    (err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    }
-  );
-});
+router.get("/notification/:id", (req, res) => appointmentController.getNotification(req,res));
 
 module.exports = router;
