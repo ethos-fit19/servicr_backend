@@ -23,8 +23,15 @@ router.get("/", (req, res) => {
 });
 
 // Update
-router.put("/", async (req, res) => {
-  user.findOneAndUpdate(req.body.id, req.body, (err, doc) => {
+router.put("/:id", async (req, res) => {
+  user.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+    ResponseService.generalPayloadResponse(err, doc, res, "User updated");
+  });
+});
+
+router.patch("/:id", async (req, res) => {
+  console.log(req.params.id);
+  user.findByIdAndUpdate(req.params.id, req.body, (err, doc) => {
     ResponseService.generalPayloadResponse(err, doc, res, "User updated");
   });
 });
