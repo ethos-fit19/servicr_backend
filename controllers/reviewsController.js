@@ -32,6 +32,15 @@ exports.getById=(async(req, res) => {
   });
 });
 
+//get by user id
+exports.getByUserId=(async(req, res) => {
+  reviews.find({ servicer : req.params.id },(err, doc) => {
+      ResponseService.generalPayloadResponse(err, doc, res);
+    })
+    .sort({ addedOn: -1 })
+    .populate("addedBy", "name");
+});
+
 // Delete
 exports.delete=(async(req, res) => {
   reviews.findByIdAndRemove(req.params.id, (err, doc) => {
